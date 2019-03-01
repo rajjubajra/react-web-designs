@@ -1,58 +1,22 @@
 import React, { Component } from 'react';
-import Header from './components/Header/Header';
+//import Header from './components/Header/Header';
 import MainPage from './components/MainPage/MainPage';
-import events from 'events'
-import ajax from './ajax'
+import Logo from './images/logo.png';
 import './App.css';
+import ImgLab from './components/MainPage/ImgLab';
 
-
-const emitter = new events.EventEmitter();
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      nodes: []
-    }
-    this.refresh = this.refresh.bind(this)
-  }
 
-  componentWillMount() {
-    emitter.addListener('NODE_UPDATED', this.refresh)
-  }
-
-  componentWillUnmount() {
-    emitter.addListener('NODE_UPDATED', this.refresh)
-  }
-
-  async componentDidMount() {
-    await this.refresh()
-  }
-
-  async refresh() {
-    // AJAX fetch server/node/rest?_format=json and setState with the response data
-    try {
-      const axios = await ajax() // wait for an initialized axios object
-      const response = await axios.get('/rest/images') // wait for the POST AJAX request to complete
-      if (response.data) {
-        // setState will trigger repaint
-        this.setState({ nodes: response.data })
-      }
-      } catch (e) {
-      alert(e)
-    }
-  }
-
-
-  render() {
-    //console.log('image data', this.state.images);
-    return (
+  render(){
+    return(
       <div>
-       <Header />
-       <MainPage />
+        <ImgLab />
       </div>
-    );
+    )
   }
+
+  
 }
 
 export default App;

@@ -30,7 +30,7 @@ class Footer extends React.Component{
         <div className="footer">
           <div className="left">
             <h3>Get Quotation:</h3>
-            <a  href="#" target="_blank" className="button">Message us</a>
+            <a  target="_blank" className="button">Message us</a>
           </div>
           <div className="right">
               <div className="logo">Logo</div>
