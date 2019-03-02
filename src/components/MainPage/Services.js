@@ -7,13 +7,12 @@ const Page = styled.div`
   display:block;
 
   section{
-    margin:var(--standard-margin);
+    padding:var(--standard-margin);
   }
   
                                       
   h2{
     text-align: center;
-    margin-top: 50px;
   }
   div.icons{
     margin: 50px 0px 80px 0px;

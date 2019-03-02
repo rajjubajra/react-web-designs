@@ -4,10 +4,8 @@ import styled from 'styled-components';
 const Page = styled.section`
     width: 100%;
     
-    
-
     section{
-      margin: var(--standard-margin);
+      padding: var(--standard-margin);
       display:flex;
       min-height: 600px;
       justify-content: space-around;

@@ -3,7 +3,10 @@ import styled from 'styled-components';
 
 const Section = styled.section`
 width: 100%;
-margin-bottom: 100px;
+height: 500px;
+display:flex;
+justify-content: center;
+align-items: center;
 
 div.footer{
   width: 100%;

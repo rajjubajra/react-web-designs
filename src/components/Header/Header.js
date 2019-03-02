@@ -94,8 +94,6 @@ class Header extends React.Component{
 
 
   render(props){
-
-
     const {logo} = this.props;
     return(
       <Nav>
