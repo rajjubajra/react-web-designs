@@ -5,7 +5,11 @@ import styled from 'styled-components';
 
 
 const Page = styled.div`
+margin: 50px;
 display: flex;
+flex-direction: column;
+
+
   section{
       display: flex;
       flex-wrap: wrap;
@@ -68,7 +72,7 @@ class ImgLab extends Component {
   render(){
     
     const url = 'https://yellow-website.com'
-    const images = this.state.images.map((img)=> {
+    const Images = this.state.images.map((img)=> {
         if(img.field_image_category == "Background Image"){  
             return(    
               <div key={img.nid}>
@@ -78,7 +82,7 @@ class ImgLab extends Component {
         }
     });
 
-    const logo = this.state.images.map((logo)=>{
+    const Logo = this.state.images.map((logo)=>{
       if(logo.field_image_category == 'Logo'){
           return(
               <div key={logo.nid}>
@@ -88,15 +92,33 @@ class ImgLab extends Component {
       }
     });
 
+    const Tea = this.state.images.map((tea)=>{
+      if(tea.field_image_category == 'Tea'){
+          return(
+              <div key={tea.nid}>
+                   <img src={url + tea.field_image_rest_api} alt={tea.field_image_category} title={tea.field_image_category} />
+                   <p>{tea.field_image_name}</p>
+              </div>)
+      }
+    });
+
 
     
     return(
       <Page>
+        <h3>Logo</h3>
         <section>
-          <h3>Logo</h3>
-          {this.state.isLoaded == true ? logo : 'Loading....'}
-          <h3>Background Images</h3>
-          {this.state.isLoaded == true ? images : 'Loading....'}
+          {this.state.isLoaded == true ? Logo : 'Loading....'}
+        </section> 
+
+         <h3>Background Images</h3>
+        <section> 
+          {this.state.isLoaded == true ? Images : 'Loading....'}
+        </section>
+
+        <h3>Tea Images</h3>
+        <section> 
+          {this.state.isLoaded == true ? Tea : 'Loading....'}
         </section>
         
       </Page>

@@ -52,7 +52,9 @@ a.read-all-button{
 
 class LatestNews extends React.Component{
 
-  render(){
+  render(props){
+    console.log(this.props.images);
+
     return(
       <Section>
         

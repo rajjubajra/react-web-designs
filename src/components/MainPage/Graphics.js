@@ -18,16 +18,28 @@ div.text{
 }
 
 div.design{
+  display: block;
   width: 50%;
-  .fas, .fab{
-    font-weight: 900;
-    font-size: 5rem;
-    text-align: center;
-    width: 100%;
-    color: slategrey;
-    opacity: .5;
-    text-shadow: 1px 1px 0px #000;
-  }
+
+    .fas, .fab{
+      font-weight: 900;
+      font-size: 5rem;
+      text-align: center;
+      width: 100%;
+      color: slategrey;
+      opacity: .5;
+      text-shadow: 1px 1px 0px #000;
+    }
+
+    i{
+      width: 80%;
+      height: 300px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+     }
+    
+  
 }
 
 
@@ -36,7 +48,9 @@ div.design{
 
 class Graphics extends React.Component{
 
-  render(){
+  render(props){
+    const bggImage = this.props.graphics;
+    console.log('graphics image',bggImage);
     return(
       <Page>
         <section>
@@ -46,10 +60,9 @@ class Graphics extends React.Component{
                 <a className="button" href="#">View More</a>
           </div>
           <div className="design">
-                 <i className="fab fa-adobe"></i>
+                 <i style={{backgroundImage:`url("${bggImage}")`}}></i>
           </div>
-        </section>
-        
+        </section>        
       </Page>
 
     )

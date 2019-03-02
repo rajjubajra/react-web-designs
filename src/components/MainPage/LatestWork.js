@@ -34,6 +34,8 @@ div.gallery > div.card{
     margin: 2.5%;
     min-height: 250px;
     border: 1px solid #ccc;
+    background-size: cover;
+    background-position: center;
   }
 }
 
@@ -43,7 +45,19 @@ div.gallery > div.card{
 
 class LatestWork extends React.Component{
 
-  render(){
+  render(props){
+    const url = 'https://yellow-website.com';
+
+    const latestJob = this.props.images.map((img)=>{
+      if(img.field_image_category == 'Tea'){
+      return(
+        <div className="card">
+          <span style={{backgroundImage:`url("${url + img.field_image_rest_api}")`}} ></span>
+        </div>
+      )
+      }
+    })
+
     return(
       <Page>
           <section>
@@ -52,12 +66,7 @@ class LatestWork extends React.Component{
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta, consequuntur doloremque fugiat corporis, iure commodi asperiores, hic distinctio labore amet quis ipsam placeat. Maiores perferendis soluta sequi et animi.</p>
               </div>
               <div className="gallery">
-                <div className="card"><span></span></div>
-                <div className="card"><span></span></div>
-                <div className="card"><span></span></div>
-                <div className="card"><span></span></div>
-                <div className="card"><span></span></div>
-                <div className="card"><span></span></div>
+                {latestJob}
               </div>
               <div className="row">
                 <a className="button" href="" target="_blank">Veiw more works</a>

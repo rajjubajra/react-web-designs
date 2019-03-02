@@ -29,6 +29,8 @@ ul.images > li{
     border: 0.5rem solid #fff;
     margin: 5px;
     box-shadow: 1px 1px 1px #3333334f;
+    background-size: cover;
+    background-position: center;
 }
 
 button{
@@ -43,7 +45,9 @@ button{
 
 class CallAction extends React.Component{
 
-  render(){
+  render(props){
+    const {v_1, v_2, v_3} = this.props;
+
     return(
       <Page>
         <section>
@@ -55,9 +59,9 @@ class CallAction extends React.Component{
           </div>
           <div>
             <ul className="images">
-              <li></li>
-              <li></li>
-              <li></li>
+              <li style={{backgroundImage:`url("${v_1}")`}}></li>
+              <li style={{backgroundImage:`url("${v_2}")`}}></li>
+              <li style={{backgroundImage:`url("${v_3}")`}}></li>
             </ul>
           </div>
         </section>

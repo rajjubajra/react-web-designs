@@ -22,6 +22,14 @@ div.template{
   display: flex;
   justify-content: center;
   align-items:center;
+
+   i{
+    width: 80%;
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+   }
   
   .fas{
     font-weight: 900;
@@ -41,12 +49,15 @@ div.template{
 
 class Websites extends React.Component{
 
-  render(){
+  render(props){
+
+  const  bgImage = this.props.responsive_web;
+
     return(
       <Page>
         <section>
             <div className="template">
-              <i className="fas fa-desktop"></i>
+              <i style={{backgroundImage:`url("${bgImage}")`}}></i>
             </div>
             <div className="text">
               <h3>Websites</h3>

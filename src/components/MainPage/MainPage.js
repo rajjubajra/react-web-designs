@@ -46,7 +46,12 @@ class MainPage extends React.Component{
         bg_2: '',
         bg_3: '',
         bg_4: '',
-        bg_5: ''
+        bg_5: '',
+        verticle_1: '',
+        verticle_2: '',
+        verticle_3: '',
+        responsive_web: '',
+        graphics: ''
       }
       
 
@@ -58,6 +63,13 @@ class MainPage extends React.Component{
             img.field_image_name == 'bg-5' && this.setState({bg_5: url + img.field_image_rest_api})
             img.field_image_name == 'bg-3' && this.setState({bg_3: url + img.field_image_rest_api})
             img.field_image_name == 'bg-6' && this.setState({bg_6: url + img.field_image_rest_api})
+            img.field_image_name == 'vertical-1' && this.setState({vertical_1: url + img.field_image_rest_api})
+            img.field_image_name == 'vertical-2' && this.setState({vertical_2: url + img.field_image_rest_api})
+            img.field_image_name == 'vertical-3' && this.setState({vertical_3: url + img.field_image_rest_api})
+            img.field_image_name == 'responsive-web' && this.setState({responsive_web: url + img.field_image_rest_api})
+            img.field_image_name == 'paintings' && this.setState({graphics: url + img.field_image_rest_api})
+
+
           })
       }
  
@@ -77,16 +89,21 @@ class MainPage extends React.Component{
                 <Services />
               </section>
               <section>
-                <CallAcction />
+                <CallAcction 
+                v_1={this.state.vertical_1} 
+                v_2={this.state.vertical_2} 
+                v_3={this.state.vertical_3} />
               </section>
               <section className="parallax" style={{backgroundImage: `url("${this.state.bg_3}")`}}><WorkProcess /></section>
-              <section><LatestWork /></section>
+              <section><LatestWork images={this.props.images} /></section>
               <section><Features /></section>
               <section><Reviews /></section>
-              <section><Websites /></section>
-              <section> <Graphics /></section>
+              <section><Websites responsive_web={this.state.responsive_web} /></section>
+              <section> 
+                <Graphics graphics={this.state.graphics} />
+              </section>
               <section><ScrollingFeatures /></section>
-              <section><LatestNews /></section>
+              <section><LatestNews images={this.props.images} /></section>
               <section><Subscription /></section>
               <section><Contact /></section>
               <section className="parallax" style={{backgroundImage:`url("${this.state.bg_6}")`}}><Footer /> </section>
