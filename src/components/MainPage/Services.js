@@ -54,7 +54,8 @@ const Page = styled.div`
 
   .fab, .fas, .far{
     font-size: 4rem;
-    color: slategrey;
+    color: #fdfdfd;
+    text-shadow: 1px 1px 2px #000;
     padding: 30px 20px;
   }
 

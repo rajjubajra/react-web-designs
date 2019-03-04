@@ -54,6 +54,8 @@ class LatestNews extends React.Component{
 
   render(props){
     console.log(this.props.images);
+    
+
 
     return(
       <Section>

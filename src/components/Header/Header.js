@@ -9,8 +9,6 @@ const animate = keyframes`
   to{
     border-buttom: 1px solid #999;
   }
-
-
 `;
 
 
@@ -25,14 +23,14 @@ justify-content: space-between;
   }
 }
 
+
 ul.main-menu{
+  height: 54px;
   margin-right: 20px;
   display: flex;
 }
-
 ul.main-menu > li{
-  list-style: none;
-  
+  list-style: none; 
   a{
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -50,59 +48,105 @@ ul.main-menu > li{
     -webkit-transition: padding 0.4s; /* For Safari 3.1 to 6.0 */
     transition: padding 0.4s;
   }
-  
 }
 
+
+
 @media only screen and (max-width: 700px) {
-  ul.main-menu{
-    flex-direction: column;
 
-    li{
-      line-height: 2.5rem;
-    }
-
-
+  .header{
+    width: 100%;
+    height: 54px;
   }
 
+  ul.main-menu{
+    display: none;
+    flex-direction: column;
+    position: relative;
+    top: 13px;
+    width: 200px;
+    z-index: 1;
+    padding: 0px;
+    text-align: center;
+    li{
+      line-height: 2.5rem;
+      background-color: #ddd;
+    }
+    li a:hover{
+      color: #fff;
+      border-bottom: 0px;
+    }
+  }
+  .show{
+   display: flex !important;
+  }
   .line-button{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 15px 0px;
+    position: fixed;
+    right: 40px;
+    top: 10px;
+    z-index: 1;
   }
-
   .line-button > div{
     width: 20px;
     height:2px;
     margin: 2px;
-    background-color: #000;
+    background-color: #ddd;
   }
 }
-
-   
 `;
 
 
 
 class Header extends React.Component{
-  foo = () =>{
-    
-
+  constructor(){
+    super();
+    this.state = {
+      isHovere: false,
+      isMobileMenu: false,
+    }    
   }
 
+  handleHover = () => {
+      this.state.isHovere === false 
+        ? this.setState({isHovere: true}) 
+        : this.setState({isHovere: false});
+       const NavBtn = document.querySelector('.main-menu');      
+       this.state.isHovere ? NavBtn.classList.remove('show'): NavBtn.classList.add('show');
+  }
+  handleMenu = () => {
+    this.state.isMobileMenu === false 
+      ? this.setState({isMobileMenu: true}) 
+      : this.setState({isMobileMenu: false});
+     const NavBtn = document.querySelector('.main-menu');      
+     this.state.isMobileMenu ? NavBtn.classList.remove('show'): NavBtn.classList.add('show');
+}
   
+
+
 
 
   render(props){
     const {logo} = this.props;
+    
     return(
       <Nav>
-        <div className="logo"><img src={logo} alt="logo" /></div>
+        <div className="header">
+          <div className="logo"><img src={logo} alt="logo" /></div>
+          {/**  mobile app line icon for drop down menu */}
+            <div  className="line-button" 
+                  onMouseEnter={this.handleHover} 
+                  onMouseLeave={this.handleHover}>
+              <div></div><div></div><div></div>
+            </div>
+        </div>
+        
         <div>
-            {/**  mobile app line icon for drop down menu */}
-            <div className="line-button"><div></div><div></div><div></div></div>
+          <ul className="main-menu" 
+                  onMouseEnter={this.handleMenu} 
+                  onMouseLeave={this.handleMenu}>
 
-          <ul className="main-menu">
             <li><a onClick={this.foo} href="#" target="_blank">Multi Page</a></li>
             <li><a onClick={this.foo} href="#" target="_blank">Single Page</a></li>
             <li><a onClick={this.foo} href="#" target="_blank">Blogs</a></li>

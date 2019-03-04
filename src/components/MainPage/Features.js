@@ -25,10 +25,19 @@ margin-bottom: 100px;
       min-height: 150px;
       margin: 2.5%;
       padding: 20px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
       flex-direction: column;
-      background-color: #f4f4f4;
-      justify-content:center;
+      background-color: #cde1c5;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      border: 1px solid #b7b3b4;
+      justify-content: center;
     }
   }
 
@@ -37,9 +46,9 @@ margin-bottom: 100px;
     font-size: 3rem;
     text-align: right;
     width: 100%;
-    color: slategrey;
-    opacity: .5;
-    text-shadow: 1px 1px 0px #000;
+    color: #630101;
+    /* opacity: .5; */
+    text-shadow: 1px 2px 2px #928f8f;
 }
 `;
 

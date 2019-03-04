@@ -19,10 +19,14 @@ const Page = styled.section`
         text-align: center;
 
         div{
-          margin-top: 20px;
           font-size: 0.9rem;
           text-transform: uppercase;
           font-weight: 100;
+          margin: 20px 30px;
+          background: #6d6f68;
+          padding: 10px 0px;
+          color: white;
+          letter-spacing: 2px;
         }
     }
 
@@ -31,8 +35,8 @@ const Page = styled.section`
       font-weight: 900;
       width: 80%;
       padding: 50px 0px;
-      border: 1px solid #ccc;
-      color: silver;
+      border: 1px solid #630101;
+      color: #630101;
     }
 
 `;

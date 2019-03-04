@@ -24,6 +24,13 @@ import Logo from '../../images/logo.png';
 
 const Page = styled.div`
 width: 100%;
+
+section.sec-top{
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
 section.parallax{
   width: 100%;
   /*set minimum height*/
@@ -79,7 +86,7 @@ class MainPage extends React.Component{
             return( 
             <Page>
               <section><Header logo={Logo} /></section>
-              <section className="parallax" style={{backgroundImage:`url("${this.state.bg_2}")`}}>
+              <section className="parallax sec-top" style={{backgroundImage:`url("${this.state.bg_2}")`}}>
                 <Landing />
               </section>
               <section>
